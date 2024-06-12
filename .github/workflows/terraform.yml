@@ -1,4 +1,4 @@
-name: "Terraform"
+name: "Terraform Infrastructure AWS"
  
 on:
   push:
@@ -25,7 +25,7 @@ env:
  
 jobs:
   terraform:
-    name: "Terraform Infrastructure"
+    name: "Infra AWS"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     defaults:
@@ -35,7 +35,7 @@ jobs:
         working-directory: ./terraform
  
     steps:
-      - name: Checkout the repositoy to the runner
+      - name: Checkout the repositoy
         uses: actions/checkout@v4
  
       - name: Setup Terraform

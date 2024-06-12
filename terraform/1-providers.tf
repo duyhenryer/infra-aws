@@ -7,12 +7,12 @@ terraform {
 
 
   backend "s3" {
-      bucket = "duynh-terraform-tfstate"
-      key = "global/s3/terraform.tfstate"
-      region = "ap-southeast-1"
-      encrypt        = true
+    bucket  = "duynh-terraform-tfstate"
+    key     = "global/s3/terraform.tfstate"
+    region  = "ap-southeast-1"
+    encrypt = true
   }
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"

@@ -1,4 +1,4 @@
-name: "Terraform Infrastructure AWS"
+name: "Terraform Infra AWS"
  
 on:
   push:
@@ -26,7 +26,7 @@ env:
  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   terraform:
-    name: "Infra AWS"
+    name: "INFRA AWS"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     defaults:
@@ -93,7 +93,7 @@ jobs:
         run: terraform plan -out workspace.plan
 
       - name: Post Plan
-        if: always() && github.ref != 'refs/heads/master' && (steps.plan.outcome == 'success' || steps.plan.outcome == 'failure')
+        if: always() && github.ref != 'refs/heads/main' && (steps.plan.outcome == 'success' || steps.plan.outcome == 'failure')
         uses: robburger/terraform-pr-commenter@v1
         with:
           commenter_type: plan

@@ -22,12 +22,15 @@ env:
  TF_LOG: INFO
  # S3 bucket for the Terraform state
  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
- TF_IN_AUTOMATION: true
- GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   terraform:
     name: "INFRA AWS"
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TF_IN_AUTOMATION: true
+      EXPAND_SUMMARY_DETAILS: true
     timeout-minutes: 10
     defaults:
       run:
